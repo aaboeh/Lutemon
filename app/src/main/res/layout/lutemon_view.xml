@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:layout_marginTop="10dp"
+    android:background="#E5BA7C">
+
+    <ImageView
+        android:id="@+id/LutemonImage"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="0"
+        app:srcCompat="@drawable/greenlutemon" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/LutemonNameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lutemonin nimi"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/LutemonAttackText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hyökkäys: 0" />
+
+        <TextView
+            android:id="@+id/LutemonDefenseText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Puolustus: 0" />
+
+        <TextView
+            android:id="@+id/LutemonHealthText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Elämä: 0/0" />
+
+        <TextView
+            android:id="@+id/LutemonExperienceText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kokemus: 0" />
+    </LinearLayout>
+</LinearLayout>
