@@ -21,14 +21,20 @@ public class HomeFragment extends Fragment {
 
         homeLutemonText = view.findViewById(R.id.HomeLutemonText);
         StringBuilder homeLutemons = new StringBuilder();
+        boolean lutemonsAtHome = false;
 
         for (Lutemon lutemon : Storage.getInstance().getLutemons()) {
             if (lutemon.isAtHome()) {
                 homeLutemons.append("#").append(lutemon.getId()).append(" ").append(lutemon.getName()).append("(").append(lutemon.getColor()).append(")\n");
+                lutemonsAtHome = true;
             }
         }
 
-        homeLutemonText.setText(homeLutemons.toString());
+        if (!lutemonsAtHome) {
+            homeLutemonText.setText("Lutemoneja ei ole kotona!\nLuo uusia Lutemoneja tai siirrä nykyisiä Lutemoneja kotiin");
+        } else {
+            homeLutemonText.setText(homeLutemons.toString());
+        }
 
         return view;
     }

@@ -77,11 +77,35 @@ public class Lutemon {
         this.experience += amount;
     }
 
+    public void addAttack(int amount) {
+        this.attack += amount;
+    }
+
+    public void addDefense(int amount) {
+        this.defense += amount;
+    }
+
+    public void addMaxHealth(int amount) {
+        this.maxHealth += amount;
+    }
+
     public void setHealth(int health) {
         if (health < 0) {
             this.health = 0;
         } else {
             this.health = health;
         }
+    }
+
+    public void setAtHome(boolean x) {
+        this.atHome = x;
+    }
+
+    public void setAtBattle(boolean x) {
+        this.atBattle = x;
+    }
+
+    public void setAtTraining(boolean x) {
+        this.atTraining = x;
     }
 }
