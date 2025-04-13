@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         addLutemonActivityButton = findViewById(R.id.AddLutemonActivityButton);
         listLutemonActivityButton = findViewById(R.id.ListLutemonActivityButton);
+        moveLutemonActivityButton = findViewById(R.id.MoveLutemonActivityButton);
         fightLutemonActivityButton = findViewById(R.id.FightLutemonActivityButton);
 
         addLutemonActivityButton.setOnClickListener(view -> {
@@ -30,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
         fightLutemonActivityButton.setOnClickListener(view -> {
             Intent intent = new Intent(this, FightLutemonActivity.class);
+            startActivity(intent);
+        });
+
+        moveLutemonActivityButton.setOnClickListener(view -> {
+            Intent intent = new Intent(this, MoveLutemonActivity.class);
             startActivity(intent);
         });
     }

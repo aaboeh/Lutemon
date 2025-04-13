@@ -10,6 +10,9 @@ public class Lutemon {
     protected int health;
     protected int maxHealth;
     protected int id;
+    protected boolean atHome;
+    protected boolean atBattle;
+    protected boolean atTraining;
     public static int idCounter = 0;
 
     public Lutemon(String name) {
@@ -17,6 +20,9 @@ public class Lutemon {
         this.experience = 0;
         idCounter ++;
         this.id = idCounter;
+        this.atHome = true;
+        this.atBattle = false;
+        this.atTraining = false;
     }
 
     public String getName() {
@@ -53,6 +59,18 @@ public class Lutemon {
 
     public int getLutemonImage() {
         return lutemonImage;
+    }
+
+    public boolean isAtHome() {
+        return atHome;
+    }
+
+    public boolean isAtBattle() {
+        return atBattle;
+    }
+
+    public boolean isAtTraining() {
+        return atTraining;
     }
 
     public void addExperience(int amount) {

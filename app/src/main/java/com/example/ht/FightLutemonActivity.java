@@ -29,12 +29,24 @@ public class FightLutemonActivity extends AppCompatActivity {
 
         lutemonCheckBoxContainer = findViewById(R.id.FightLutemonCheckboxContainer);
         fightButton = findViewById(R.id.FightButton);
+        boolean lutemonAdded = false;
 
         for (Lutemon lutemon : Storage.getInstance().getLutemons()) {
-            CheckBox checkBox = new CheckBox(this);
-            checkBox.setText(lutemon.getName() + " (" + lutemon.getColor() + ")");
-            checkBox.setTag(lutemon);
-            lutemonCheckBoxContainer.addView(checkBox);
+            if (lutemon.isAtBattle()) {
+                CheckBox checkBox = new CheckBox(this);
+                checkBox.setText(lutemon.getName() + " (" + lutemon.getColor() + ")");
+                checkBox.setTag(lutemon);
+                lutemonCheckBoxContainer.addView(checkBox);
+                lutemonAdded = true;
+            }
+        }
+
+        if (!lutemonAdded) {
+            TextView infoText = new TextView(getApplicationContext());
+            infoText.setText("Siirrä Lutemoneja taisteluareenalle");
+            infoText.setTextColor(Color.BLACK);
+            infoText.setTextSize(16);
+            lutemonCheckBoxContainer.addView(infoText);
         }
 
         fightButton.setOnClickListener(view -> {
