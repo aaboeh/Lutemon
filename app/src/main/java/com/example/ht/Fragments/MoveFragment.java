@@ -89,6 +89,9 @@ public class MoveFragment extends Fragment {
             }
 
             uncheckAllCheckboxes();
+            lutemonMoveRadioGroup.clearCheck();
+
+            showSuccessToast("Lutemonit siirretty onnistuneesti!");
 
         });
 
@@ -112,6 +115,19 @@ public class MoveFragment extends Fragment {
         toast.setGravity(Gravity.CENTER,0,200);
         TextView toastText = new TextView(getActivity());
         toastText.setTextColor(Color.RED);
+        toastText.setTextSize(20);
+        toastText.setTypeface(toastText.getTypeface(), Typeface.BOLD);
+        toastText.setText(message);
+        toast.setView(toastText);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    private void showSuccessToast(String message) {
+        Toast toast = new Toast(getContext());
+        toast.setGravity(Gravity.CENTER,0,200);
+        TextView toastText = new TextView(getActivity());
+        toastText.setTextColor(Color.BLACK);
         toastText.setTextSize(20);
         toastText.setTypeface(toastText.getTypeface(), Typeface.BOLD);
         toastText.setText(message);

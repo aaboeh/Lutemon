@@ -43,7 +43,7 @@ public class FightLutemonActivity extends AppCompatActivity {
 
         if (!lutemonAdded) {
             TextView infoText = new TextView(getApplicationContext());
-            infoText.setText("Siirrä Lutemoneja taisteluareenalle");
+            infoText.setText("Siirrä Lutemoneja taisteluareenalle!");
             infoText.setTextColor(Color.BLACK);
             infoText.setTextSize(16);
             lutemonCheckBoxContainer.addView(infoText);
@@ -104,12 +104,14 @@ public class FightLutemonActivity extends AppCompatActivity {
 
             fightInfo.append(attacker.getName()).append("(").append(attacker.getColor()).append(") hyökkää ").append(defender.getName()).append("(").append(defender.getColor()).append(")\n");
 
-            int damage = attacker.getAttack() - defender.getDefense();
-            defender.setHealth(defender.getHealth() - damage);
+            defender.defense(attacker);
 
             if (defender.getHealth() <= 0) {
                 fightInfo.append(defender.getName()).append("(").append(defender.getColor()).append(") kuoli.\n");
-                attacker.addExperience(5);
+                attacker.addExperience(3);
+                attacker.addAttack(3);
+                attacker.addDefense(3);
+                attacker.addMaxHealth(3);
                 fightInfo.append("Taistelu päättyi!\n");
                 break;
             } else {

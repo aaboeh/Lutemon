@@ -108,4 +108,20 @@ public class Lutemon {
     public void setAtTraining(boolean x) {
         this.atTraining = x;
     }
+
+    public void defense(Lutemon attacker) {
+        int damage = attacker.getAttack() - this.getDefense();
+        double damageVariance = Math.random();
+        if (damageVariance > 0.9) {
+            damage += attacker.getExperience();
+        } else if (damageVariance < 0.1) {
+            damage -= this.getExperience();
+            if (damage <= 0) {
+                damage = 0;
+            }
+        }
+
+        this.setHealth(this.getHealth() - damage);
+
+    }
 }
