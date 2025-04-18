@@ -51,5 +51,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Kokemus: 0" />
+
+        <TextView
+            android:id="@+id/LutemonStatsText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="V: H: T:" />
     </LinearLayout>
 </LinearLayout>

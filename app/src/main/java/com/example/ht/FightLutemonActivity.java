@@ -112,6 +112,8 @@ public class FightLutemonActivity extends AppCompatActivity {
                 attacker.addAttack(3);
                 attacker.addDefense(3);
                 attacker.addMaxHealth(3);
+                attacker.wins += 1;
+                defender.losses += 1;
                 fightInfo.append("Taistelu päättyi!\n");
                 break;
             } else {

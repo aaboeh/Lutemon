@@ -10,6 +10,9 @@ public class Lutemon {
     protected int health;
     protected int maxHealth;
     protected int id;
+    protected int wins;
+    protected int losses;
+    protected int trainingDays;
     protected boolean atHome;
     protected boolean atBattle;
     protected boolean atTraining;
@@ -20,6 +23,9 @@ public class Lutemon {
         this.experience = 0;
         idCounter ++;
         this.id = idCounter;
+        this.wins = 0;
+        this.losses = 0;
+        this.trainingDays = 0;
         this.atHome = true;
         this.atBattle = false;
         this.atTraining = false;
@@ -59,6 +65,18 @@ public class Lutemon {
 
     public int getLutemonImage() {
         return lutemonImage;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
+    public int getLosses() {
+        return losses;
+    }
+
+    public int getTrainingDays() {
+        return trainingDays;
     }
 
     public boolean isAtHome() {
@@ -123,5 +141,14 @@ public class Lutemon {
 
         this.setHealth(this.getHealth() - damage);
 
+    }
+
+    public void train() {
+        this.addExperience(1);
+        this.addAttack(1);
+        this.addDefense(1);
+        this.addMaxHealth(1);
+        this.setHealth(maxHealth);
+        this.trainingDays += 1;
     }
 }

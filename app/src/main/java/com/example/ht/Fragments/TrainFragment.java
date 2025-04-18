@@ -62,10 +62,7 @@ public class TrainFragment extends Fragment {
             }
 
             for (Lutemon lutemon : selectedLutemons) {
-                lutemon.addExperience(1);
-                lutemon.addAttack(1);
-                lutemon.addDefense(1);
-                lutemon.addMaxHealth(1);
+                lutemon.train();
             }
 
             uncheckAllCheckboxes();
