@@ -25,7 +25,7 @@ public class HomeFragment extends Fragment {
 
         for (Lutemon lutemon : Storage.getInstance().getLutemons()) {
             if (lutemon.isAtHome()) {
-                homeLutemons.append("#").append(lutemon.getId()).append(" ").append(lutemon.getName()).append("(").append(lutemon.getColor()).append(")\n");
+                homeLutemons.append("#").append(lutemon.getId()).append(" ").append(lutemon.getName()).append(" (").append(lutemon.getColor()).append(")\n");
                 lutemonsAtHome = true;
             }
         }

@@ -76,6 +76,8 @@ public class FightLutemonActivity extends AppCompatActivity {
                     .replace(R.id.LutemonFightFrame, fightFragment)
                     .commit();
 
+            uncheckAllCheckboxes();
+
         });
 
     }
@@ -124,5 +126,14 @@ public class FightLutemonActivity extends AppCompatActivity {
 
     private String getStats(Lutemon lutemon, int number) {
         return number + ": " + lutemon.getName() + "(" + lutemon.getColor() + ") hyökkäys: " + lutemon.getAttack() + "; puolustus: " + lutemon.getDefense() + "; kokemus: " + lutemon.getExperience() + "; elämä: " + lutemon.getHealth() + "/" + lutemon.getMaxHealth();
+    }
+
+    private void uncheckAllCheckboxes() {
+        for (int i = 0; i < lutemonCheckBoxContainer.getChildCount(); i++) {
+            View child = lutemonCheckBoxContainer.getChildAt(i);
+            if (child instanceof CheckBox) {
+                ((CheckBox) child).setChecked(false);
+            }
+        }
     }
 }

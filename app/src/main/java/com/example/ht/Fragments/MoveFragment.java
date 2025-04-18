@@ -87,6 +87,9 @@ public class MoveFragment extends Fragment {
                     lutemon.setAtTraining(false);
                 }
             }
+
+            uncheckAllCheckboxes();
+
         });
 
 
@@ -115,6 +118,15 @@ public class MoveFragment extends Fragment {
         toast.setView(toastText);
         toast.setDuration(Toast.LENGTH_LONG);
         toast.show();
+    }
+
+    private void uncheckAllCheckboxes() {
+        for (int i = 0; i < lutemonCheckBoxContainer.getChildCount(); i++) {
+            View child = lutemonCheckBoxContainer.getChildAt(i);
+            if (child instanceof CheckBox) {
+                ((CheckBox) child).setChecked(false);
+            }
+        }
     }
 
 }
