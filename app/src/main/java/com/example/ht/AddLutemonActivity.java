@@ -45,6 +45,11 @@ public class AddLutemonActivity extends AppCompatActivity {
             return;
         }
 
+        if (lutemonName.length() > 20) {
+            showErrorToast("Nimi saa olla enintään 20 merkkiä!");
+            return;
+        }
+
         if (selectedId == R.id.WhiteLutemonRadioButton) {
             Storage.getInstance().addLutemon(new WhiteLutemon(lutemonName));
         } else if (selectedId == R.id.GreenLutemonRadioButton) {
