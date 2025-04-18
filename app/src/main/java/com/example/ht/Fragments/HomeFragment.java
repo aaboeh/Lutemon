@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ht.Lutemon;
@@ -15,11 +16,13 @@ import com.example.ht.Storage;
 
 public class HomeFragment extends Fragment {
     private TextView homeLutemonText;
+    private Button healLutemonButton;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         homeLutemonText = view.findViewById(R.id.HomeLutemonText);
+        healLutemonButton = view.findViewById(R.id.HealLutemonButton);
         StringBuilder homeLutemons = new StringBuilder();
         boolean lutemonsAtHome = false;
 
@@ -35,6 +38,14 @@ public class HomeFragment extends Fragment {
         } else {
             homeLutemonText.setText(homeLutemons.toString());
         }
+
+        healLutemonButton.setOnClickListener(v -> {
+            for (Lutemon lutemon : Storage.getInstance().getLutemons()) {
+                if (lutemon.isAtHome()) {
+                    lutemon.setHealth(lutemon.getMaxHealth());
+                }
+            }
+        });
 
         return view;
     }
