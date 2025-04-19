@@ -35,16 +35,7 @@ public class FightLutemonActivity extends AppCompatActivity {
         fightButton.setOnClickListener(view -> {
             ArrayList<Lutemon> selectedLutemons = getSelectedLutemons();
             if (selectedLutemons.size() != 2) {
-                Toast toast = new Toast(getApplicationContext());
-                toast.setGravity(Gravity.CENTER,0,200);
-                TextView toastText = new TextView(FightLutemonActivity.this);
-                toastText.setTextColor(Color.RED);
-                toastText.setTextSize(20);
-                toastText.setTypeface(toastText.getTypeface(), Typeface.BOLD);
-                toastText.setText("Valitse 2 Lutemonia taisteluun!");
-                toast.setView(toastText);
-                toast.setDuration(Toast.LENGTH_LONG);
-                toast.show();
+                ToastHelper.showErrorToast(getApplicationContext(), "Valitse 2 Lutemonia taisteluun!");
                 return;
             }
 

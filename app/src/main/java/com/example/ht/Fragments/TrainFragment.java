@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.ht.Lutemon;
 import com.example.ht.R;
 import com.example.ht.Storage;
+import com.example.ht.ToastHelper;
 
 import java.util.ArrayList;
 
@@ -57,7 +58,7 @@ public class TrainFragment extends Fragment {
 
             ArrayList<Lutemon> selectedLutemons = getSelectedLutemons();
             if (selectedLutemons.size() == 0) {
-                showErrorToast("Valitse vähintään 1 Lutemoni!");
+                ToastHelper.showErrorToast(getContext(), "Valitse vähintään 1 Lutemoni!");
                 return;
             }
 
@@ -67,7 +68,7 @@ public class TrainFragment extends Fragment {
 
             uncheckAllCheckboxes();
 
-            showSuccessToast("Lutemonit treenasivat onnistuneesti!");
+            ToastHelper.showSuccessToast(getContext(), "Lutemonit treenasivat onnistuneesti!");
 
         });
 
@@ -85,19 +86,6 @@ public class TrainFragment extends Fragment {
         return selectedLutemons;
     }
 
-    private void showErrorToast(String message) {
-        Toast toast = new Toast(getContext());
-        toast.setGravity(Gravity.CENTER,0,200);
-        TextView toastText = new TextView(getActivity());
-        toastText.setTextColor(Color.RED);
-        toastText.setTextSize(20);
-        toastText.setTypeface(toastText.getTypeface(), Typeface.BOLD);
-        toastText.setText(message);
-        toast.setView(toastText);
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.show();
-    }
-
     private void uncheckAllCheckboxes() {
         for (int i = 0; i < trainLutemonCheckBoxContainer.getChildCount(); i++) {
             View child = trainLutemonCheckBoxContainer.getChildAt(i);
@@ -107,16 +95,4 @@ public class TrainFragment extends Fragment {
         }
     }
 
-    private void showSuccessToast(String message) {
-        Toast toast = new Toast(getContext());
-        toast.setGravity(Gravity.CENTER,0,200);
-        TextView toastText = new TextView(getActivity());
-        toastText.setTextColor(Color.BLACK);
-        toastText.setTextSize(20);
-        toastText.setTypeface(toastText.getTypeface(), Typeface.BOLD);
-        toastText.setText(message);
-        toast.setView(toastText);
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.show();
-    }
 }

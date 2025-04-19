@@ -36,17 +36,17 @@ public class AddLutemonActivity extends AppCompatActivity {
         String lutemonName = lutemonNameEdit.getText().toString();
 
         if (selectedId == -1) {
-            showErrorToast("Valitse Lutemonin tyyppi!");
+            ToastHelper.showErrorToast(getApplicationContext(), "Valitse Lutemonin tyyppi!");
             return;
         }
 
         if (lutemonName.isEmpty()) {
-            showErrorToast("Anna Lutemonille nimi!");
+            ToastHelper.showErrorToast(getApplicationContext(), "Anna Lutemonille nimi!");
             return;
         }
 
         if (lutemonName.length() > 20) {
-            showErrorToast("Nimi saa olla enintään 20 merkkiä!");
+            ToastHelper.showErrorToast(getApplicationContext(), "Nimi saa olla enintään 20 merkkiä!");
             return;
         }
 
@@ -62,31 +62,9 @@ public class AddLutemonActivity extends AppCompatActivity {
             Storage.getInstance().addLutemon(new BlackLutemon(lutemonName));
         }
 
-        Toast toast = new Toast(getApplicationContext());
-        toast.setGravity(Gravity.CENTER,0,200);
-        TextView toastText = new TextView(AddLutemonActivity.this);
-        toastText.setTextColor(Color.BLACK);
-        toastText.setTextSize(20);
-        toastText.setTypeface(toastText.getTypeface(), Typeface.BOLD);
-        toastText.setText("Lutemon lisätty!");
-        toast.setView(toastText);
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.show();
+        ToastHelper.showSuccessToast(getApplicationContext(), "Lutemon lisätty!");
 
         lutemonNameEdit.setText("");
         lutemonTypeRadioGroup.clearCheck();
-    }
-
-    public void showErrorToast(String message) {
-        Toast toast = new Toast(getApplicationContext());
-        toast.setGravity(Gravity.CENTER,0,200);
-        TextView toastText = new TextView(AddLutemonActivity.this);
-        toastText.setTextColor(Color.RED);
-        toastText.setTextSize(20);
-        toastText.setTypeface(toastText.getTypeface(), Typeface.BOLD);
-        toastText.setText(message);
-        toast.setView(toastText);
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.show();
     }
 }

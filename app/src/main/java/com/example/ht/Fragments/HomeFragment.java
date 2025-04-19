@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.ht.Lutemon;
 import com.example.ht.R;
 import com.example.ht.Storage;
+import com.example.ht.ToastHelper;
 
 public class HomeFragment extends Fragment {
     private TextView homeLutemonText;
@@ -40,11 +41,22 @@ public class HomeFragment extends Fragment {
         }
 
         healLutemonButton.setOnClickListener(v -> {
+
+            boolean atHome = false;
+
             for (Lutemon lutemon : Storage.getInstance().getLutemons()) {
                 if (lutemon.isAtHome()) {
                     lutemon.setHealth(lutemon.getMaxHealth());
+                    atHome = true;
                 }
             }
+
+            if (!atHome) {
+                ToastHelper.showErrorToast(getContext(), "Siirrä Lutemoneja kotiin parannettavaksi!");
+            }
+
+            ToastHelper.showSuccessToast(getContext(), "Lutemonit parannettu onnistuneesti!");
+
         });
 
         return view;
